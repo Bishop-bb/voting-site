@@ -1,0 +1,52 @@
+
+<%- include ('includes/user/header') %>
+<body>
+    <%- include ('includes/user/nav') %>
+
+    <section class="content">
+        <div class="container-fluid">
+            <h3>Presedential Election</h3>
+            <div class="row">
+                <% contestants.forEach(contestants => {%>
+                <div class="col-md-3">
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                          <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle"
+                                 src="../../dist/img/user4-128x128.jpg"
+                                 alt="User profile picture">
+                          </div>
+          
+                          <h3 class="profile-username text-center"><%= contestants.name %></h3>
+          
+                          <p class="text-muted text-center"><%= contestants.party %></p>
+          
+                          <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item">
+                              <b>State of Origin</b> <a class="float-right"><%= contestants.stateofOrigin %></a>
+                            </li>
+                            <li class="list-group-item">
+                              <b>Age</b> <a class="float-right"><%= contestants.age %></a>
+                            </li>
+                            <!-- <li class="list-group-item">
+                              <b>Friends</b> <a class="float-right">13,287</a>
+                            </li> -->
+                          </ul>
+                           <form action="/vote" method="post">
+                            <input type="hidden" name="id" value="<%= contestants.id %>">
+                           <button type="submit" class="btn btn-primary btn-block">VOTE</button>
+                          
+                        </form>
+                        </div>
+                        <!-- /.card-body -->
+                      </div>
+                </div>
+                <% })%>
+            </div>
+        </div>
+    </section>    
+   
+         
+    <%- include ('includes/admin/footer') %>
+</body>
+

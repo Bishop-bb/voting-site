@@ -1,0 +1,22 @@
+<ul id="navbar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/votingpage">Voting Page</a></li>
+   <ul id="ul2">
+    <% if(isLoggedIn){%>
+        <li>
+            <form action="/logout" method="post">
+                <button type="submit" class="btn btn-dark">Log out</button>
+            </form>        
+        </li>
+   <% }
+   else{%>
+    <li style="margin-left: 5px;">
+        <form action="/login" method="post">
+            <button type="submit" class="btn btn-dark">Sign in</button>
+        </form>
+    </li>
+   <%}%>
+   
+    
+   </ul>
+</ul>

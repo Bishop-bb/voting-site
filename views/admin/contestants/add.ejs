@@ -1,0 +1,99 @@
+<%- include ('../../includes/admin/header') %>
+
+<body class="hold-transition sidebar-mini ">
+  
+
+    <div class="wrapper">
+
+      <%- include ('../../includes/admin/nav') %>
+       
+
+     
+
+          <div class="content-wrapper" >
+          <section class="content-header  ">
+            <div class="container-fluid" style="display: flex; justify-content: center; ">
+            
+                <div class="col-md-8">
+                  <!-- general form elements -->
+                  <div class="card card-primary">
+                    <div class="card-header ">
+                      <h3 class="card-title ">ADD CONTESTANTS</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/addCon" method="post">
+                      <div style="display: flex; align-items: center;" >
+
+                       <div class="card-body col-md-6">
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                          <label for="image">Image</label>
+                          <input type="text" name="image" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="party">Party</label>
+                          <input type="text" name="party" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="logo">Logo</label>
+                          <input type="text" name="logo" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="state_of_origin">State of Origin</label>
+                          <input type="text" name="state_of_origin" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="lga">Local Government Area</label>
+                          <input type="text" name="lga" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        </div>
+                       
+                   
+                      
+                      </div>
+
+
+                      <div class="col-md-6" style="display: flex; flex-direction: column;">
+                        <div class="mb-3">
+                          <label for="description">Description</label>
+                          <textarea name="description" class="form-control" id="" cols="30" rows="6"></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="achievement">Acheivement</label>
+                          <textarea name="achievement" class="form-control" id="" cols="30" rows="6"></textarea>
+                        </div>            
+                     
+                      </div>
+
+                    </div>
+      
+                      <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+
+                     
+                    </form>
+                  </div>
+                  <!-- /.card -->
+      
+      
+                </div>
+             
+            </div>
+          </section>
+        </div>
+    <div>
+      
+
+         
+
+
+
+
+
+
+    <%- include ('../../includes/admin/footer') %>
+</body>

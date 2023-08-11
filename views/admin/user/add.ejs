@@ -1,0 +1,135 @@
+<%- include ('../../includes/admin/header') %>
+
+<body class="hold-transition sidebar-mini ">
+  
+
+    <div class="wrapper">
+
+      <%- include ('../../includes/admin/nav') %>
+       
+
+     
+
+          <div class="content-wrapper" >
+          <section class="content-header  ">
+            <div class="container-fluid" style="display: flex; justify-content: center; ">
+          
+                <div class="col-md-4" >
+                    
+
+                      <strong><%= JSON.stringify(emailErr) %></strong>
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                      <div class="card-header ">
+                        <h3 class="card-title ">Registration Form</h3>
+                      </div>
+                     
+                      <form action="/addUser" method="post">
+                        
+            
+                         <div class="card-body ">
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input 
+                            type="text"
+                            name="name" 
+                            class="form-control" 
+                            placeholder="Enter full-name"
+                            value="<%=oldInput.length > 0 && oldInput[0].name ? oldInput[0].name : '' %>"
+                            />
+                            <% if (valErr.length > 0){
+                              for(let error of valErr){
+                                if(error.path == "name"){ %>
+                                  <strong><%= error.msg%></strong>
+                              <%  }%>
+                            <%  }
+                            }%>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" class="form-control" id="exampleInputPassword1" placeholder="E-mail"
+                            value="<%=oldInput.length > 0 && oldInput[0].email ? oldInput[0].email : '' %>"
+                            />
+                            <% if (valErr.length > 0){
+                              for(let error of valErr){
+                                if(error.path == "email"){ %>
+                                  <strong><%= error.msg%></strong>
+                              <%  }%>
+                            <%  }
+                            }%>
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">Phone-number</label>
+                            <input type="text" name="phone_number" class="form-control" id="exampleInputPassword1" placeholder="Phone-number"
+                            value="<%=oldInput.length > 0 && oldInput[0].phone_number ? oldInput[0].phone_number : '' %>"
+                            />
+                            <% if (valErr.length > 0){
+                              for(let error of valErr){
+                                if(error.path == "phone_number"){ %>
+                                  <strong><%= error.msg%></strong>
+                              <%  }%>
+                            <%  }
+                            }%>
+                          </div>
+                          <div class="form-group">
+                            <label>Role</label>
+                                <select class="form-control" name="role">
+                                    <option></option>
+                                  <option>admin</option>
+                                  <option>user</option>
+                                </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="logo">Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <% if (valErr.length > 0){
+                              for(let error of valErr){
+                                if(error.path == "password"){ %>
+                                  <strong><%= error.msg%></strong>
+                              <%  }%>
+                            <%  }
+                            }%>
+                          </div>
+                          <div class="form-group">
+                            <label for="state_of_origin">Confirm Password</label>
+                            <input type="password" name="confirm password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
+                            <% if (valErr.length > 0){
+                              for(let error of valErr){
+                                if(error.path == "confirm password"){ %>
+                                  <strong><%= error.msg%></strong>
+                              <%  }%>
+                            <%  }
+                            }%>
+                          </div>
+                         
+                         
+                     
+                   
+            
+                        <div class="card-footer text-center">
+                          <input type="submit" class="btn btn-primary" value="submit">
+                          <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                        </div>
+            
+                       
+                      </form>
+                    </div>
+                    <!-- /.card -->
+            
+            
+                  </div>
+                  </div>
+          </section>
+        </div>
+    <div>
+      
+
+         
+
+
+
+
+
+
+    <%- include ('../../includes/admin/footer') %>
+</body>

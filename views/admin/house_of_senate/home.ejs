@@ -1,0 +1,80 @@
+<%- include ('../../includes/admin/header') %>
+
+<body class="hold-transition sidebar-mini ">
+  
+
+    <div class="wrapper">
+
+      <%- include ('../../includes/admin/nav') %>
+       
+
+     
+
+          <div class="content-wrapper" >
+          <section class="content-header  ">
+            <div class="container-fluid" style="display: flex; justify-content: center; ">
+            
+                <div class="col-md-8">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">S/N</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Party</th>
+                                <th scope="col">Logo</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% if(senators.length > 0){
+                                let sn = 1
+                                for(let senator of senators){%>
+                                    <tr>
+                                        <th scope="row"><%= sn++ %></th>
+                                        <td><%= senator.name%></td>
+                                        <td><%= senator.image%></td>
+                                        <td><%= senator.party%></td>
+                                        <td><%= senator.logo%></td>
+                                        <td>
+                                            <div style="display: flex;" class="text-center">
+                                                <a href="/updateSenator/<%= senator.id %>" class="btn btn-warning">Update</a>
+                                                <form class="" action="" method="post">
+                                                    <input type="hidden" name="id" value="<%= senator.id %>">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                               <% }
+
+                            }%>
+                        </tbody>
+
+
+
+
+
+
+                    </table>
+      
+      
+                </div>
+             
+            </div>
+          </section>
+        </div>
+    <div>
+      
+
+         
+
+
+
+
+
+
+    <%- include ('../../includes/admin/footer') %>
+</body>

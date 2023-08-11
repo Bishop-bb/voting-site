@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul#navbar{
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+
+
+}
+#navbar a{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid transparent;
+}
+#navbar li{
+    float: left;
+    padding: 10px 0;
+}
+
+#navbar #ul2{
+    float: right;
+    margin-right: 10px;
+    
+}
+#navbar a:hover{
+    /* color: red;
+    background-color: brown; */
+    border-bottom: 2px solid red;
+}

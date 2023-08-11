@@ -1,0 +1,80 @@
+<%- include ('../../includes/admin/header') %>
+
+<body class="hold-transition sidebar-mini ">
+  
+
+    <div class="wrapper">
+
+      <%- include ('../../includes/admin/nav') %>
+       
+
+     
+
+          <div class="content-wrapper" >
+          <section class="content-header  ">
+            <div class="container-fluid" style="display: flex; justify-content: center; ">
+            
+                <div class="col-md-8">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">S/N</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Party</th>
+                                <th scope="col">Logo</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% if(contestants.length > 0){
+                                let sn = 1
+                                for(let contestant of contestants){%>
+                                    <tr>
+                                        <th scope="row"><%= sn++ %></th>
+                                        <td><%= contestant.name%></td>
+                                        <td><%= contestant.image%></td>
+                                        <td><%= contestant.party%></td>
+                                        <td><%= contestant.logo%></td>
+                                        <td>
+                                            <div style="display: flex;" class="text-center">
+                                                <a href="/updateContestants/<%= contestant.id %>" class="btn btn-warning">Update</a>
+                                                <form class="" action="" method="post">
+                                                    <input type="hidden" name="id" value="<%= contestant.id %>">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                               <% }
+
+                            }%>
+                        </tbody>
+
+
+
+
+
+
+                    </table>
+      
+      
+                </div>
+             
+            </div>
+          </section>
+        </div>
+    <div>
+      
+
+         
+
+
+
+
+
+
+    <%- include ('../../includes/admin/footer') %>
+</body>

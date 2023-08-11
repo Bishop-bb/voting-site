@@ -1,0 +1,78 @@
+<%- include ('../../includes/admin/header') %>
+
+<body class="hold-transition sidebar-mini ">
+  
+
+    <div class="wrapper">
+
+      <%- include ('../../includes/admin/nav') %>
+       
+
+     
+
+          <div class="content-wrapper text-center" >
+          <section class="content-header  ">
+            <div class="container-fluid" style="display: flex; justify-content: center; ">
+            
+                <div class="col-md-10">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">S/N</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Role</th>
+                               
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% if(users.length > 0){
+                                let sn = 1
+                                for(let user of users){%>
+                                    <tr>
+                                        <th scope="row"><%= sn++ %></th>
+                                        <td><%= user.name%></td>
+                                        <td><%= user.email%></td>
+                                        <td><%= user.phone_number%></td>
+                                        <td><%= user.role%></td>
+                                        
+                                        <td><%= user.status%></td>
+                                        <td>
+                                            <div style="display: flex;" class="text-center">
+                                                <a href="/updateUser/<%= user.id %>" class="btn btn-warning">Update</a>
+                                                <form class="" action="/delete" method="post">
+                                                    <input type="hidden" name="id" value="<%= user.id %>">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                               <% }
+
+                            }%>
+                        </tbody>
+
+
+
+
+
+
+                    </table>
+      
+      
+                </div>
+             
+            </div>
+          </section>
+        </div>
+    <div>
+      
+
+        
+    <%- include ('../../includes/admin/footer') %>
+</body>
