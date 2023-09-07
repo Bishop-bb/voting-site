@@ -55,7 +55,8 @@ app.use(express.static(path.join(__dirname, "public")))
 app.use((req, res, next)=>{
     res.locals.isLoggedIn = req.session.isLoggedIn
     res.locals.user = req.session.user
-    res.locals.voted = req.session.voted
+    res.locals.votedCon = req.session.votedCon
+    res.locals.votedSen = req.session.votedSen
 
     next()
 })
@@ -68,7 +69,7 @@ app.use(users)
 app.use(auth)
 app.use(vote)
 app.use(house_of_senate)
-//  Users.sync({alter:true})
+//  House_of_senate.sync({alter:true})
 sequelize.sync().then(results=>{
     app.listen(3000, ()=>{
         console.log('connected to port 3000')

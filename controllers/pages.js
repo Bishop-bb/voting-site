@@ -1,29 +1,32 @@
 const express = require('express');
 const Contestants = require('../models/contestants')
+const House_of_senate = require('../models/house_of_senate')
 const Users = require('../models/users')
 // const Homepage = require('../models/')
 
 
 exports.Home=(req, res)=>{
-    console.log(req.session.user)
+    console.log(req.session.isLoggedIn)
     console.log('oyaaa')
     let username;
     
     
-    Contestants.findAll().then(contestants=>{
+   Promise.all([Contestants.findAll(), House_of_senate.findAll()]).then(([ contestants, senate])=>{
         if(req.session.user && req.session.user.name){
             username = req.session.user.name
         }
         else if(!req.session.user){
             username = ""
         }
-        res.render('index', {contestants:contestants, user: username})
+        res.render('index', {contestants:contestants,
+            senate: senate
+            , user: username})
     })
 }
 
 exports.votingPage=(req, res)=>{
-    Contestants.findAll().then(contestants=>{
-        res.render('votingPage', {contestants:contestants})
+    Promise.all([Contestants.findAll(), House_of_senate.findAll()]).then(([ contestants, senate])=>{
+        res.render('votingPage', {contestants:contestants, senate: senate})
     })
     
 }

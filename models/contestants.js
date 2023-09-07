@@ -8,6 +8,7 @@ const contestants = sequelize.define('contestants', {
         autoIncrement: true,
         primaryKey: true
     },
+    
     name:{
         type: Sequelize.STRING(80),
         allowNull: false,

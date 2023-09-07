@@ -9,4 +9,5 @@ router.get('/senHome', senate.senHome)
 router.post('/updateSen', senate.updateSen)
 
 
+
 module.exports = router

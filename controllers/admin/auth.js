@@ -47,7 +47,7 @@ exports.register= (req, res)=>{
                     password: hashedPassword,
                     role: 'user'
                 }).then(result=>{
-                    res.redirect('/userHome')
+                    res.redirect('/login')
                 }).catch(err=>{
                     console.log(err)   
                 })
@@ -98,7 +98,7 @@ exports.login =(req, res)=>{
                     res.redirect('/login')
                 })
             }
-            
+             console.log('hmmmmmmmmmmmmm')
             
            
             return req.session.save(()=>{

@@ -8,11 +8,7 @@ const house_of_senate = sequelize.define('house_of_senate', {
         autoIncrement: true,
         primaryKey: true
     },
-    user_id:{
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        unique: true,
-    },
+   
     name:{
         type: Sequelize.STRING(80),
         allowNull: false,
