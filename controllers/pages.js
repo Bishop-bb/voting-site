@@ -14,13 +14,17 @@ exports.Home=(req, res)=>{
    Promise.all([Contestants.findAll(), House_of_senate.findAll()]).then(([ contestants, senate])=>{
         if(req.session.user && req.session.user.name){
             username = req.session.user.name
+            stat = req.session.user.status
         }
         else if(!req.session.user){
             username = ""
+            stat = "pending"
         }
         res.render('index', {contestants:contestants,
             senate: senate
-            , user: username})
+            , user: username,
+            stat: stat
+        })
     })
 }
 
