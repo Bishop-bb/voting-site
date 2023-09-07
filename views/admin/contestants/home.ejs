@@ -38,7 +38,7 @@
                                         <td><%= contestant.party%></td>
                                         <td><%= contestant.logo%></td>
                                         <td>
-                                            <div style="display: flex;" class="text-center">
+                                            <div style="display: flex; justify-content:space-evenly" class="text-center">
                                                 <a href="/updateContestants/<%= contestant.id %>" class="btn btn-warning">Update</a>
                                                 <form class="" action="" method="post">
                                                     <input type="hidden" name="id" value="<%= contestant.id %>">

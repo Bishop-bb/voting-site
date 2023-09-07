@@ -47,9 +47,20 @@ exports.loginPage = (req, res)=>{
 }
 
 exports.adminHome=(req, res)=>{
-     Promise.all([Users.findAll({limit: 5}), Contestants.findAll()])
-     .then(([users, contestants])=>{
-        res.render('admin/adminHome', {users: users, contestants: contestants})
+     Promise.all([Users.findAll({}), Contestants.findAll(), House_of_senate.findAll({})])
+     .then(([users, contestants, senate])=>{
+
+        if(req.session.user && req.session.user.name){
+            username = req.session.user.name
+        }
+        else if(!req.session.user){
+            username = ""
+        }
+        res.render('admin/adminHome', {users: users, 
+            contestants: contestants,
+            senate: senate
+            , user: username
+        })
      }).catch(err=>{
         console.log(err)
      })
